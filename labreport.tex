@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage{siunitx}
+\marginparwidth 0.5in 
+\oddsidemargin 0.25in 
+\evensidemargin 0.25in 
+\marginparsep 0.25in
+\topmargin 0.25in 
+\textwidth 6in \textheight 8 in
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{float}
+\usepackage{empheq}
+\usepackage{mathtools}
+\usepackage{longtable}
+
+\pgfplotstableset{% global config, for example in the preamble
+  every head row/.style={before row=\toprule,after row=\midrule},
+  every last row/.style={after row=\bottomrule},
+  fixed,precision=2,
+}
+
+
+\begin{document}
+
+\author{Ashwin Kumar K - 2017B5PS1034G}
+\title{PHYF214 PHYSICS LAB REPORT SEM1 2018-2019 \\ Lab 5 Group 7:  Spectroscopy using a Diffraction Grating [DG]
+}
+\date{6 \textsuperscript{th} September, 2018}
+\maketitle
+
+\section{Experimental Tasks}
+\begin{enumerate}
+    \item To calibrate the grating spectrometer using the known source (Hg source) of light and to calculate the grating constant.
+    \item Using the same grating, to calculate the wavelength of sodium doublet lines.
+\end{enumerate}
+\section{Apparatus}
+Spectrometer, transmission diffraction grating, sodium vapour lamp, mercury vapour lamp,
+power supply for spectral lamps, magnifying glass.
+
+\section{Theory}
+Light from a mercury source is incident normally on a diffraction grating mounted on a spectrometer after calibration.
+The diffraction angle of the diffracted light is measured for each spectral line of the
+Hg-source.This enables us to calculate a constant d using the formula  
+\begin{equation}
+    dsin\theta=\lambda
+\end{equation}
+
+d is related to the no of slits in the grating.\\
+Likewise for sodium source, the diffraction angle and angular separation $\Delta \theta $ of the
+sodium doublet is measured. Then using equation (1) we can back calculate the wavelength $\lambda$ of the two lines.
+
+
+
+
+\section{Observations and Analysis}
+\subsection{Calibration of the Diffraction Grating}
+Least count of the scale = $\frac{1}{60}^{\circ}$.\\
+Table 1: Data gathered while making the slit perpendicular to collimator .
+
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|}
+\hline
+Angle for step 4(a )& Angle for step (4b) & Angle for step (4c) & Angle for step (4d) \\
+\hline
+348.33$^{\circ}$            & 78.33$^{\circ}$             & 124$^{\circ}$               & 79$^{\circ}$             \\
+\hline
+\end{tabular}
+\end{table}
+Table 2: Data gathered during calibration with mercury lamp.\\
+\begin{table}[h]
+\begin{tabular}{|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|l|l|l|}
+\hline
+Colour     & wavelength (in m) & LHS reading (in$^{\circ}$ )         & RHS reading (in$^{\circ}$ )        & Angle (in$^{\circ}$ )       & $sin\theta$        & d= $\frac{\lambda}{sine\theta}$ \\
+\hline
+Violet 1   & 4.05E-007  & 2.03 & 337.6       & 12.216 & 0.211 & 1.91E-006   \\
+Violet 2   & 4.08E-007  & 2.93 & 336.67 & 13.133 & 0.227 & 1.79E-006   \\
+Blue-green & 4.92E-007  & 3.53 & 335.2       & 14.166 & 0.244 & 2.01E-006   \\
+Green      & 5.46E-007  & 5.16 & 333.53 & 15.817 & 0.272 & 2.00E-006   \\
+Yellow 1   & 5.77E-007  & 6.16 & 332.58 & 16.797 & 0.288 & 2.00E-006   \\
+Yellow 2   & 5.79E-007  & 6.3         & 333.5       & 16.4        & 0.2823414587 & 2.05E-006  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\caption{Graph of $\lambda$ vs $sin\theta$ for the calibration part}\par\medskip
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel={$sin\theta$ $\Rightarrow$},
+    ylabel=$\lambda$(in $m$) $\Rightarrow$,
+    ]
+  \addplot [
+    color=red,
+] table [x=sin@,y={wavelength}] {Table2.txt};
+
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+slope of the graph $d = 2.03E-06$ m.\\
+
+\textbf{\emph{Analysis:}}\\
+Error in value of d can be given by the standard deviation $\sigma = 9.3 E -8$ m 
+\subsection{Determination of wavelength of sodium doublet lines}
+
+\pagebreak
+Table 3: Data gathered with sodium lamp.
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Colour   & LHS reading (in$^{\circ}$ )        & RHS reading (in$^{\circ}$ )        & $\theta$ (in $^\circ$)           & $sin\theta$         & $\lambda$ (in m)                    \\ \hline
+Yellow 1 & 5.8167 & 333.3833 & 16.2167 & 0.279 & 5.48E-007   \\
+Yellow 2 & 6.533 & 332.33 & 17.1        & 0.294 & 5.77E-007  \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\textbf{\emph{Analysis:}}\\
+To calculate the error in $\lambda$ we make use of the equation 
+\begin{equation}
+    \frac{\Delta \lambda}{\lambda} = \frac{\Delta d}{d} + \frac{\Delta \theta}{\theta}\\
+    
+\end{equation}
+$\therefore $ we get $ \Delta \lambda$ for yellow 1 as 1.74E-7 and that for yellow 2 as 1.92E-7. 
+\section{Precautions}
+\begin{itemize}
+
+    \item  The directions of rotation of the telescope micrometer screw should be maintained the
+same. Otherwise the play in the micrometer spindle will lead to backlash errors.
+    \item  The experiment should be performed in a dark room.
+    \item  The spectral lamps should attain their full illuminating power after being warmed up for
+about 5 minutes, so the observations should be taken after 5 minutes.
+    \item One of the essential precautions for the success of this experiment is to set the grating
+normal to the incident rays. Small variation in the angle of incidence causes large error
+in the angle of diffraction. If the exact normality is not achieved, one finds that the angles
+of diffraction measured on the left and on the right are not exactly equal.
+\end{itemize}
+
+\section{Conclusions and Results}
+By following the standard procedure for calibrating the diffraction grating and measurement of sodium divergence angle , we were able to find two lines in the sodium emission spectra namely yellow 1 and yellow 2 lines peaking at $(5.48 \pm 1.74)E -7 $ m and $(5.77 \pm 1.92)E -7 $m respectively.
+
+
+
+\end{document}
